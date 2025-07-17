@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎉 Happy Birthday Bestie! | A Special Gift</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fff0f5, #ffe6f7, #fff0f5);
+      color: #6a1b9a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 750px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 25px;
+      box-shadow: 0 10px 40px rgba(255, 105, 180, 0.2);
+      z-index: 2;
+      animation: fadeIn 1s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 182, 193, 0.3);
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: linear-gradient(45deg, #ffb6c1, #ff69b4, #ffb6c1);
+      z-index: -1;
+      border-radius: 35px;
+      opacity: 0.3;
+      animation: gradientBG 15s ease infinite;
+      background-size: 300% 300%;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      color: #d81b60;
+      margin-bottom: 15px;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .step2 h1, .step3 h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.2em;
+    }
+
+    p {
+      font-size: 1.3em;
+      color: #7b1fa2;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      background: linear-gradient(45deg, #e91e63, #ff4081);
+      color: white;
+      border: none;
+      padding: 15px 32px;
+      border-radius: 50px;
+      font-size: 1.2em;
+      margin-top: 30px;
+      box-shadow: 0 6px 15px rgba(216, 27, 96, 0.3);
+      cursor: pointer;
+      transition: all 0.4s;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 20px rgba(216, 27, 96, 0.4);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+
+    .btn:hover::after {
+      transform: translateX(100%);
+    }
+
+    #envelope {
+      display: none;
+      margin-top: 30px;
+      cursor: pointer;
+      animation: floaty 3s ease-in-out infinite;
+      filter: drop-shadow(0 10px 15px rgba(216, 27, 96, 0.3));
+      transition: all 0.4s;
+      max-width: 220px;
+    }
+
+    #envelope:hover {
+      transform: scale(1.08);
+      filter: drop-shadow(0 15px 20px rgba(216, 27, 96, 0.4));
+    }
+
+    #letter {
+      display: none;
+      background: rgba(255, 243, 252, 0.9);
+      border: 2px dashed #e91e63;
+      padding: 30px;
+      margin-top: 30px;
+      border-radius: 20px;
+      color: #4a148c;
+      font-size: 1.2em;
+      line-height: 1.8;
+      text-align: left;
+      position: relative;
+      box-shadow: inset 0 0 15px rgba(216, 27, 96, 0.1);
+    }
+
+    #letter::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      border: 1px solid rgba(216, 27, 96, 0.1);
+      border-radius: 10px;
+      pointer-events: none;
+    }
+
+    .heart {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0;
+      animation: floatUp 4s linear forwards;
+    }
+
+    @keyframes floaty {
+      0% { transform: translateY(0px) rotate(-2deg); }
+      50% { transform: translateY(-15px) rotate(2deg); }
+      100% { transform: translateY(0px) rotate(-2deg); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-500px) rotate(360deg); opacity: 0; }
+    }
+
+    canvas.confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 99;
+    }
+
+    .floating-hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .step3 .btn {
+      background: linear-gradient(45deg, #9c27b0, #e91e63);
+      margin-top: 40px;
+    }
+
+    .signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8em;
+      color: #e91e63;
+      margin-top: 20px;
+      text-align: right;
+    }
+
+    .balloon {
+      position: absolute;
+      width: 60px;
+      height: 80px;
+      background: rgba(255, 105, 180, 0.2);
+      border-radius: 50%;
+      z-index: -1;
+      animation: floatBalloon 15s linear infinite;
+    }
+
+    @keyframes floatBalloon {
+      0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+      10% { opacity: 0.8; }
+      90% { opacity: 0.8; }
+      100% { transform: translateY(-100px) translateX(50px); opacity: 0; }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 25px;
+        margin: 20px;
+        max-width: 90%;
+      }
+      
+      h1 {
+        font-size: 2em;
+      }
+      
+      p {
+        font-size: 1.1em;
+      }
+      
+      #envelope {
+        max-width: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="floating-hearts" id="hearts-container"></div>
+
+<div class="container" id="step1">
+  <h1>🎂 Happy Birthday, Bestie! 💖</h1>
+  <p>Today is all about you, your sparkle, and the incredible light you bring to this world ✨</p>
+  <p>Ready for your special surprise?</p>
+  <button class="btn" onclick="showEnvelope()">Open Your Gift 🎁</button>
+</div>
+
+<div class="container step2" id="step2" style="display:none;">
+  <h1>A Special Gift For You</h1>
+  <p>Click the envelope to reveal your heartfelt message 💌</p>
+  <img src="C:\Users\APL\Downloads\download__11_-removebg-preview.png" id="envelope" onclick="showLetter()" />
+</div>
+
+<div class="container step3" id="step3" style="display:none;">
+  <h1>To My Dearest Bestie</h1>
+  <div id="letter">
+    <p>Dear Bestie,</p>
+    <p>Happy birthday to the most amazing person I know! 🌟</p>
+    <p>You're not just a friend—you're the family I chose, my partner in crime, and the reason so many days are filled with laughter. Thank you for being my constant through all of life's chaos.</p>
+    <p>This year, I wish for you:</p>
+    <ul style="list-style-type: none; padding-left: 10px;">
+      <li>✨ Endless happiness and peace</li>
+      <li>✨ Adventures that become cherished memories</li>
+      <li>✨ All the pink, sparkly things your heart desires</li>
+      <li>✨ Love that surrounds you always</li>
+    </ul>
+    <p>You are loved more than words can express, today and every day. May this year be your brightest yet! 🎈</p>
+    <div class="signature">Forever your biggest fan<br>— Me 💫</div>
+  </div>
+  <button class="btn" onclick="location.reload()">Read Again ♥</button>
+</div>
+
+<!-- Floating balloons -->
+<div id="balloons-container"></div>
+
+<canvas class="confetti"></canvas>
+
+<!-- Confetti JS -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+  // Create floating hearts
+  function createHearts() {
+    const container = document.getElementById('hearts-container');
+    const colors = ['#ffb6c1', '#ff69b4', '#ff1493', '#db7093', '#ffc0cb'];
+    
+    for (let i = 0; i < 15; i++) {
+      const heart = document.createElement('div');
+      heart.innerHTML = '❤';
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = Math.random() * 100 + 'vh';
+      heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+      heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+      heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+      heart.style.animationDelay = Math.random() * 5 + 's';
+      container.appendChild(heart);
+    }
+  }
+
+  // Create floating balloons
+  function createBalloons() {
+    const container = document.getElementById('balloons-container');
+    const colors = ['#ffb6c1', '#ff69b4', '#ff1493', '#db7093', '#ffc0cb'];
+    
+    for (let i = 0; i < 8; i++) {
+      const balloon = document.createElement('div');
+      balloon.className = 'balloon';
+      balloon.style.left = Math.random() * 90 + 'vw';
+      balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+      balloon.style.animationDuration = (Math.random() * 10 + 10) + 's';
+      balloon.style.animationDelay = Math.random() * 5 + 's';
+      container.appendChild(balloon);
+    }
+  }
+
+  function showEnvelope() {
+    document.getElementById("step1").style.display = "none";
+    document.getElementById("step2").style.display = "block";
+    document.getElementById("envelope").style.display = "inline-block";
+    createHearts();
+    createBalloons();
+  }
+
+  function showLetter() {
+    document.getElementById("step2").style.display = "none";
+    document.getElementById("step3").style.display = "block";
+    document.getElementById("letter").style.display = "block";
+    throwConfetti();
+    createHeartRain();
+  }
+
+  function throwConfetti() {
+    const duration = 5 * 1000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 999 };
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    const interval = setInterval(() => {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      const particleCount = 80 * (timeLeft / duration);
+      // Heart and circle confetti mix
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.1, 0.9), y: Math.random() - 0.2 },
+        shapes: Math.random() > 0.5 ? ['heart'] : ['circle'],
+        colors: ['#ffb6c1', '#ff69b4', '#ff1493', '#db7093', '#ffc0cb']
+      });
+    }, 250);
+  }
+
+  function createHeartRain() {
+    const container = document.getElementById('hearts-container');
+    const colors = ['#ffb6c1', '#ff69b4', '#ff1493', '#db7093', '#ffc0cb'];
+    
+    for (let i = 0; i < 50; i++) {
+      setTimeout(() => {
+        const heart = document.createElement('div');
+        heart.innerHTML = '❤';
+        heart.className = 'heart';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.bottom = '-20px';
+        heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+        heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+        heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        container.appendChild(heart);
+        
+        // Remove heart after animation
+        setTimeout(() => {
+          heart.remove();
+        }, 4000);
+      }, i * 100);
+    }
+  }
+
+  // Initialize
+  window.onload = function() {
+    createBalloons();
+  };
+</script>
+
+</body>
+</html>
